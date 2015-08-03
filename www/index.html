@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="cordova.js"></script>
+
+    <link href="css/ratchet.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header class="bar bar-nav">
+        <h1 class="title">Cadastro de Amigos</h1>
+    </header>
+
+    <section style="margin-top: 43px">
+        <ul class="table-view content" id="tabelaAmigos" >
+
+        </ul>
+    </section>
+
+    <footer>
+        <nav class="bar bar-tab">
+            <a class="tab-item" href="index.html">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">Listar</span>
+            </a>
+            <a class="tab-item" href="cadastrar.html">
+                <span class="icon icon-person"></span>
+                <span class="tab-label">Cadastrar</span>
+            </a>
+        </nav>
+
+    </footer>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <script src="js/jQuery.tmpl.min.js"></script>
+
+    <script id="tmplAmigo" type="text/x-jquery-tmpl">
+        <li class="table-view-cell"> ${NM_AMIGO} <span class="badge">${NR_TELEFONE}</span></li>
+    </script>
+
+    <script>
+
+        //Fazer o onload (document.ready)
+
+        $(function () {
+
+            var url = "http://servicekluh.azurewebsites.net/api/amigo";
+
+            var method = "GET";
+
+            $.ajax({
+                //Pra onde nois vai
+                url: url,
+                //Como nois vai
+                method: method,
+
+                //Vai ser disparado se foi e voltou com sucesso (status 200)
+                success: function (retorno) {
+                    //alert(retorno.length);
+                    $("#tmplAmigo").tmpl(retorno).appendTo("#tabelaAmigos");
+                },
+
+                //Vai ser disparado caso tenha acontecido um erro
+                error: function () {
+                    alert("Deu ruim!");
+                }
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>

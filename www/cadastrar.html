@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script src="cordova.js"></script>
+
+    <link href="css/ratchet.min.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="bar bar-nav">
+        <h1 class="title">Cadastro de Amigos</h1>
+    </header>
+
+    <section style="margin-top: 43px">
+
+        <form>
+            <input type="text" placeholder="Entre com seu nome" id="nome" name="nome">
+
+            <input type="email" placeholder="Entre com seu email" id="email" name="email">
+
+            <input type="number" placeholder="Entre com seu telefone" id="telefone" name="telefone">
+
+            <input type="date" placeholder="dd/mm/aaaa" id="nascimento" name="nascimento">
+            
+            <button class="btn btn-positive btn-block" type="button" id="cadastrar" name="cadastrar">Cadastrar</button>
+        
+        </form>
+
+    </section>
+
+    <footer>
+        <nav class="bar bar-tab">
+            <a class="tab-item active" href="index.html">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">Listar</span>
+            </a>
+
+            <a class="tab-item" href="cadastrar.html">
+                <span class="icon icon-person"></span>
+                <span class="tab-label">Cadastrar</span>
+            </a>
+        </nav>
+    </footer>
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+
+    <!-- Não utilizar o JS do ratchet (ESTA BUGANDO AS TAG A) -->
+
+    <script src="js/cadastrar.js"></script>
+
+</body>
+</html>
